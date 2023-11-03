@@ -6,13 +6,10 @@ let project = Project.makeModule(
     name: "RootFeature",
     targets: [.unitTest, .staticFramework, .demo],
     internalDependencies: [
-        .Features.Main.Feature,
-        .Features.Spalsh.Feature,
+        .Features.Home.Feature,
         .Features.Auth.Feature,
-        .Features.Stamp.Feature,
-        .Features.Attendance.Feature,
-        .Features.Notice.Feature,
-        .Features.AppMyPage.Feature,
-        .Features.Notification.Feature
+        .Features.Posture.Feature,
+        .Features.SelfCare.Feature,
+        .Features.Shop.Feature
     ]
 )

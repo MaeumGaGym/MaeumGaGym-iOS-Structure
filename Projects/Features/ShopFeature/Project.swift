@@ -3,13 +3,12 @@ import ProjectDescriptionHelpers
 import DependencyPlugin
 
 let project = Project.makeModule(
-    name: "AttendanceFeature",
+    name: "ShopFeature",
     targets: [.unitTest, .staticFramework, .demo, .interface],
     internalDependencies: [
-        
+
     ],
     interfaceDependencies: [
         .Features.BaseFeatureDependency
     ]
 )
-
