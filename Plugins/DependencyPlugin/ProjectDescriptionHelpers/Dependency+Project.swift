@@ -12,6 +12,7 @@ public extension Dep {
         public struct Notification {}
         public struct Posture {}
         public struct Home {}
+        public struct SelfCare {}
     }
     
     struct Modules {}
@@ -116,5 +117,12 @@ public extension Dep.Features.Home {
     static let group = "Home"
     
     static let Feature = Dep.Features.project(name: "Home", group: group)
+    static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToRoot("\(group)Feature"))
+}
+
+public extension Dep.Features.SelfCare {
+    static let group = "SelfCare"
+    
+    static let Feature = Dep.Features.project(name: "SelfCare", group: group)
     static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToRoot("\(group)Feature"))
 }
