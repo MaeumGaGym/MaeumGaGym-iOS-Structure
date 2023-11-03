@@ -2,17 +2,11 @@ import ProjectDescription
 
 public extension Dep {
     struct Features {
-        public struct Main {}
-        public struct Spalsh {}
         public struct Auth {}
-        public struct Stamp {}
-        public struct Attendance {}
-        public struct Notice {}
-        public struct AppMyPage {}
-        public struct Notification {}
         public struct Posture {}
         public struct Home {}
         public struct SelfCare {}
+        public struct Shop {}
     }
     
     struct Modules {}
@@ -50,57 +44,8 @@ public extension Dep.Features {
     static let RootFeature = TargetDependency.project(target: "RootFeature", path: .relativeToFeature("RootFeature"))
 }
 
-public extension Dep.Features.Main {
-    static let group = "Main"
-    
-    static let Feature = Dep.Features.project(name: "Feature", group: group)
-    static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
-}
-
-public extension Dep.Features.Spalsh {
-    static let group = "Splash"
-    
-    static let Feature = Dep.Features.project(name: "Feature", group: group)
-    static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
-}
-
 public extension Dep.Features.Auth {
     static let group = "Auth"
-    
-    static let Feature = Dep.Features.project(name: "Feature", group: group)
-    static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
-}
-
-public extension Dep.Features.Stamp {
-    static let group = "Stamp"
-    
-    static let Feature = Dep.Features.project(name: "Feature", group: group)
-    static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
-}
-
-public extension Dep.Features.Attendance {
-    static let group = "Attendance"
-    
-    static let Feature = Dep.Features.project(name: "Feature", group: group)
-    static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
-}
-
-public extension Dep.Features.Notice {
-    static let group = "Notice"
-    
-    static let Feature = Dep.Features.project(name: "Feature", group: group)
-    static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
-}
-
-public extension Dep.Features.AppMyPage {
-    static let group = "AppMyPage"
-    
-    static let Feature = Dep.Features.project(name: "Feature", group: group)
-    static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
-}
-
-public extension Dep.Features.Notification {
-    static let group = "Notification"
     
     static let Feature = Dep.Features.project(name: "Feature", group: group)
     static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
@@ -124,5 +69,12 @@ public extension Dep.Features.SelfCare {
     static let group = "SelfCare"
     
     static let Feature = Dep.Features.project(name: "SelfCare", group: group)
+    static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToRoot("\(group)Feature"))
+}
+
+public extension Dep.Features.Shop {
+    static let group = "Shop"
+    
+    static let Feature = Dep.Features.project(name: "Shop", group: group)
     static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToRoot("\(group)Feature"))
 }
