@@ -134,7 +134,6 @@ public extension Project {
                 dependencies: [
                     deps,
                     [
-                        .SPM.Nimble,
                         .Modules.testCore
                     ]
                 ].flatMap { $0 },

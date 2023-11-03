@@ -6,11 +6,9 @@ let project = Project.makeModule(
     name: "ThirdPartyLibs",
     targets: [.dynamicFramework],
     externalDependencies: [
-        .SPM.SnapKit,
-        .SPM.Kingfisher,
-        .SPM.Then,
-        .SPM.Moya,
-        .SPM.CombineMoya,
-        .SPM.lottie
+//        .SPM.SnapKit,
+//        .SPM.Kingfisher,
+//        .SPM.Then,
+//        .SPM.lottie
     ]
 )
