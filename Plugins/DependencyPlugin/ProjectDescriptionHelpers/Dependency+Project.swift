@@ -10,6 +10,8 @@ public extension Dep {
         public struct Notice {}
         public struct AppMyPage {}
         public struct Notification {}
+        public struct Posture {}
+        public struct Home {}
     }
     
     struct Modules {}
@@ -101,4 +103,18 @@ public extension Dep.Features.Notification {
     
     static let Feature = Dep.Features.project(name: "Feature", group: group)
     static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
+}
+
+public extension Dep.Features.Posture {
+    static let group = "Posture"
+    
+    static let Feature = Dep.Features.project(name: "Posture", group: group)
+    static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
+}
+
+public extension Dep.Features.Home {
+    static let group = "Home"
+    
+    static let Feature = Dep.Features.project(name: "Home", group: group)
+    static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToRoot("\(group)Feature"))
 }
