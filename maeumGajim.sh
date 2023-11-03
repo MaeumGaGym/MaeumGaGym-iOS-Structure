@@ -22,10 +22,15 @@ elif [ "$1" = "edit" ]; then
     echo "프로젝트 수정 준비 중입니다. (닭가슴살 요리중...🐓)"
     tuist edit
     echo "프로젝트 수정 준비가 완료되었습니다! (닭가슴살 요리 완료! 🍗)"
-elif ["$1" = "fetch"]; then
+elif [ "$1" = "fetch" ]; then
     echo "프로젝트 라이브러리 적용 중입니다. (프로틴 쉐이크 가루 예쁘게 넣는 중...🥛)"
     tuist fetch
-    echo "프로젝트 라이브러리 적용을 성공적으로 끝냈습니다! (프로틴 쉐이크가 예쁘게 타졌습니다! 🧋)"
+    if [ $? -eq 0 ]; then
+        echo "프로젝트 라이브러리 적용을 성공적으로 끝냈습니다! (프로틴 쉐이크가 예쁘게 타졌습니다! 🧋)"
+    else
+        echo "프로젝트 라이브러리 적용 중에 문제가 발생했습니다... (프로틴 쉐이크가 맛있지 않다...🤢)"
+        echo "⚠️ ↑↑↑↑↑ 위 에러를 고려해주세요 ↑↑↑↑↑ ⚠️"
+    fi
 else
-    echo "사용법: ./maeumGajim.sh generate 또는 ./maeumGajim.sh clean 또는 ./maeumGajim.sh edit"
+    echo "사용법: ./maeumGajim.sh generate 또는 ./maeumGajim.sh clean 또는 ./maeumGajim.sh edit 또는 ./maeumGajim.sh fetch"
 fi
