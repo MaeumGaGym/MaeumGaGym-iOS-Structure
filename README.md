@@ -1,4 +1,3 @@
-# MaeumGajim-iOS-Structure
 # Project
 
 ## Core
