@@ -115,6 +115,24 @@
 ## 모듈 구조
 ![image](https://github.com/MaeumGajim/MaeumGajim-iOS-Structure/assets/102890390/452b1b38-4834-488b-aa84-e0cd7bed8b27)
 
+## **프로젝트 시작하기**
+
+1. 터미널을 열고 다음 명령어를 차례로 실행하여 "maeumGajim" 명령어를 등록합니다:
+    
+    ```Swift
+    cp maeumGajim.sh /usr/local/bin/maeumgajim
+    chmod +x /usr/local/bin/maeumgajim
+    ```
+    
+2. 아래 명령어를 실행하여 프로젝트를 실행할 준비를 합니다:
+    
+    ```Swift
+    maeumGajim generate
+    maeumGajim edit
+    maeumGajim clean
+    ```
+    
+
 
 해야하는 일
 +  TokenManager
