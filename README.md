@@ -113,7 +113,7 @@
 - SnapKit, Kingfisher, Then, Moya, RxMoya를 담고 있습니다.
 
 ## 모듈 구조
-![image](https://github.com/MaeumGajim/MaeumGajim-iOS-Structure/assets/102890390/452b1b38-4834-488b-aa84-e0cd7bed8b27)
+<img width="1234" alt="스크린샷 2023-11-03 오후 8 02 17" src="https://github.com/MaeumGajim/MaeumGajim-iOS-Structure/assets/102890390/fae7d3ea-d558-43ae-b866-746e82348abe">
 
 ## **프로젝트 시작하기**
 
