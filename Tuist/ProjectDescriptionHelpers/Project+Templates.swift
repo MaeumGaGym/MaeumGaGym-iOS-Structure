@@ -11,7 +11,6 @@ public extension Project {
         internalDependencies: [TargetDependency] = [],  // 모듈간 의존성
         externalDependencies: [TargetDependency] = [],  // 외부 라이브러리 의존성
         interfaceDependencies: [TargetDependency] = [], // Feature Interface 의존성
-        dependencies: [TargetDependency] = [],
         hasResources: Bool = false
     ) -> Project {
         
@@ -22,10 +21,7 @@ public extension Project {
         let baseSettings: SettingsDictionary = .baseSettings.setCodeSignManual()
         
         var projectTargets: [Target] = []
-        var schemes: [Scheme] = []
-        
-        // MARK: - App
-        
+                
         if targets.contains(.app) {
             let bundleSuffix = name.contains("Demo") ? "test" : "release"
             let infoPlist = name.contains("Demo") ? Project.demoInfoPlist : Project.appInfoPlist
@@ -49,9 +45,7 @@ public extension Project {
             
             projectTargets.append(target)
         }
-        
-        // MARK: - Feature Interface
-        
+                
         if targets.contains(.interface) {
             let settings = baseSettings
             
@@ -69,9 +63,7 @@ public extension Project {
             
             projectTargets.append(target)
         }
-        
-        // MARK: - Framework
-        
+                
         if targets.contains(where: { $0.hasFramework }) {
             let deps: [TargetDependency] = targets.contains(.interface)
             ? [.target(name: "\(name)Interface")]
@@ -94,7 +86,6 @@ public extension Project {
             projectTargets.append(target)
         }
         
-        // MARK: - Feature Executable
         
         if targets.contains(.demo) {
             let deps: [TargetDependency] = [.target(name: name)]
@@ -117,7 +108,6 @@ public extension Project {
             projectTargets.append(target)
         }
         
-        // MARK: - Unit Tests
         
         if targets.contains(.unitTest) {
             let deps: [TargetDependency] = [.target(name: name)]
@@ -143,7 +133,6 @@ public extension Project {
             projectTargets.append(target)
         }
         
-        // MARK: - UI Tests
         
         if targets.contains(.uiTest) {
             let deps: [TargetDependency] = targets.contains(.demo)
@@ -168,9 +157,7 @@ public extension Project {
             
             projectTargets.append(target)
         }
-        
-        // MARK: - Schemes
-                        
+                                
         return Project(
             name: name,
             organizationName: Environment.workspaceName,
@@ -179,40 +166,40 @@ public extension Project {
         )
     }
 }
-
-extension Scheme {
-    /// Scheme 생성하는 method
-    static func makeScheme(configs: ConfigurationName, name: String) -> Scheme {
-        return Scheme(
-            name: name,
-            shared: true,
-            buildAction: .buildAction(targets: ["\(name)"]),
-            testAction: .targets(
-                ["\(name)Tests"],
-                configuration: configs,
-                options: .options(coverage: true, codeCoverageTargets: ["\(name)"])
-            ),
-            runAction: .runAction(configuration: configs),
-            archiveAction: .archiveAction(configuration: configs),
-            profileAction: .profileAction(configuration: configs),
-            analyzeAction: .analyzeAction(configuration: configs)
-        )
-    }
-    
-    static func makeDemoScheme(configs: ConfigurationName, name: String) -> Scheme {
-        return Scheme(
-            name: "\(name)Demo",
-            shared: true,
-            buildAction: .buildAction(targets: ["\(name)Demo"]),
-            testAction: .targets(
-                ["\(name)Tests"],
-                configuration: configs,
-                options: .options(coverage: true, codeCoverageTargets: ["\(name)Demo"])
-            ),
-            runAction: .runAction(configuration: configs),
-            archiveAction: .archiveAction(configuration: configs),
-            profileAction: .profileAction(configuration: configs),
-            analyzeAction: .analyzeAction(configuration: configs)
-        )
-    }
-}
+//
+//extension Scheme {
+//    /// Scheme 생성하는 method
+//    static func makeScheme(configs: ConfigurationName, name: String) -> Scheme {
+//        return Scheme(
+//            name: name,
+//            shared: true,
+//            buildAction: .buildAction(targets: ["\(name)"]),
+//            testAction: .targets(
+//                ["\(name)Tests"],
+//                configuration: configs,
+//                options: .options(coverage: true, codeCoverageTargets: ["\(name)"])
+//            ),
+//            runAction: .runAction(configuration: configs),
+//            archiveAction: .archiveAction(configuration: configs),
+//            profileAction: .profileAction(configuration: configs),
+//            analyzeAction: .analyzeAction(configuration: configs)
+//        )
+//    }
+//    
+//    static func makeDemoScheme(configs: ConfigurationName, name: String) -> Scheme {
+//        return Scheme(
+//            name: "\(name)Demo",
+//            shared: true,
+//            buildAction: .buildAction(targets: ["\(name)Demo"]),
+//            testAction: .targets(
+//                ["\(name)Tests"],
+//                configuration: configs,
+//                options: .options(coverage: true, codeCoverageTargets: ["\(name)Demo"])
+//            ),
+//            runAction: .runAction(configuration: configs),
+//            archiveAction: .archiveAction(configuration: configs),
+//            profileAction: .profileAction(configuration: configs),
+//            analyzeAction: .analyzeAction(configuration: configs)
+//        )
+//    }
+//}
