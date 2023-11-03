@@ -112,6 +112,9 @@
 - SPM을 통해서 라이브러리를 관리하고 있습니다.
 - SnapKit, Kingfisher, Then, Moya, RxMoya를 담고 있습니다.
 
+## 모듈 구조
+![image](https://github.com/MaeumGajim/MaeumGajim-iOS-Structure/assets/102890390/452b1b38-4834-488b-aa84-e0cd7bed8b27)
+
 
 해야하는 일
 +  TokenManager
