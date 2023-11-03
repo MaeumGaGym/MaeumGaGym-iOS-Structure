@@ -1,6 +1,6 @@
 import ProjectDescription
 
-public extension Dep {
+public extension Gym {
     struct Features {
         public struct Auth {}
         public struct Posture {}
@@ -14,67 +14,67 @@ public extension Dep {
 
 // MARK: - Root
 
-public extension Dep {
-    static let data = Dep.project(target: "Data", path: .data)
+public extension Gym {
+    static let data = Gym.project(target: "Data", path: .data)
 
-    static let domain = Dep.project(target: "Domain", path: .domain)
+    static let domain = Gym.project(target: "Domain", path: .domain)
     
-    static let core = Dep.project(target: "Core", path: .core)
+    static let core = Gym.project(target: "Core", path: .core)
 }
 
 // MARK: - Modules
 
-public extension Dep.Modules {
-    static let dsKit = Dep.project(target: "DSKit", path: .relativeToModules("DSKit"))
+public extension Gym.Modules {
+    static let dsKit = Gym.project(target: "DSKit", path: .relativeToModules("DSKit"))
     
-    static let networks = Dep.project(target: "Networks", path: .relativeToModules("Networks"))
+    static let networks = Gym.project(target: "Networks", path: .relativeToModules("Networks"))
     
-    static let thirdPartyLibs = Dep.project(target: "ThirdPartyLibs", path: .relativeToModules("ThirdPartyLibs"))
+    static let thirdPartyLibs = Gym.project(target: "ThirdPartyLibs", path: .relativeToModules("ThirdPartyLibs"))
     
-    static let testCore = Dep.project(target: "TestCore", path: .relativeToModules("TestCore"))
+    static let testCore = Gym.project(target: "TestCore", path: .relativeToModules("TestCore"))
 }
 
 // MARK: - Features
 
-public extension Dep.Features {
-    static func project(name: String, group: String) -> Dep { .project(target: "\(group)\(name)", path: .relativeToFeature("\(group)\(name)")) }
+public extension Gym.Features {
+    static func project(name: String, group: String) -> Gym { .project(target: "\(group)\(name)", path: .relativeToFeature("\(group)\(name)")) }
     
     static let BaseFeatureDependency = TargetDependency.project(target: "BaseFeatureDependency", path: .relativeToFeature("BaseFeatureDependency"))
     
     static let RootFeature = TargetDependency.project(target: "RootFeature", path: .relativeToFeature("RootFeature"))
 }
 
-public extension Dep.Features.Auth {
+public extension Gym.Features.Auth {
     static let group = "Auth"
     
-    static let Feature = Dep.Features.project(name: "Feature", group: group)
-    static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
+    static let Feature = Gym.Features.project(name: "Feature", group: group)
+    static let Interface = Gym.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
 }
 
-public extension Dep.Features.Posture {
+public extension Gym.Features.Posture {
     static let group = "Posture"
     
-    static let Feature = Dep.Features.project(name: "Feature", group: group)
-    static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
+    static let Feature = Gym.Features.project(name: "Feature", group: group)
+    static let Interface = Gym.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
 }
 
-public extension Dep.Features.Home {
+public extension Gym.Features.Home {
     static let group = "Home"
     
-    static let Feature = Dep.Features.project(name: "Feature", group: group)
-    static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
+    static let Feature = Gym.Features.project(name: "Feature", group: group)
+    static let Interface = Gym.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
 }
 
-public extension Dep.Features.SelfCare {
+public extension Gym.Features.SelfCare {
     static let group = "SelfCare"
     
-    static let Feature = Dep.Features.project(name: "Feature", group: group)
-    static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
+    static let Feature = Gym.Features.project(name: "Feature", group: group)
+    static let Interface = Gym.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
 }
 
-public extension Dep.Features.Shop {
+public extension Gym.Features.Shop {
     static let group = "Shop"
     
-    static let Feature = Dep.Features.project(name: "Feature", group: group)
-    static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
+    static let Feature = Gym.Features.project(name: "Feature", group: group)
+    static let Interface = Gym.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
 }

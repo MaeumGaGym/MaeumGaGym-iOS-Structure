@@ -1,4 +1,4 @@
 import Foundation
 import ProjectDescription
 
-public typealias Dep = TargetDependency
+public typealias Gym = TargetDependency
