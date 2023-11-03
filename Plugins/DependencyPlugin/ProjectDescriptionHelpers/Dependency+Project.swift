@@ -54,27 +54,27 @@ public extension Dep.Features.Auth {
 public extension Dep.Features.Posture {
     static let group = "Posture"
     
-    static let Feature = Dep.Features.project(name: "Posture", group: group)
+    static let Feature = Dep.Features.project(name: "Feature", group: group)
     static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
 }
 
 public extension Dep.Features.Home {
     static let group = "Home"
     
-    static let Feature = Dep.Features.project(name: "Home", group: group)
-    static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToRoot("\(group)Feature"))
+    static let Feature = Dep.Features.project(name: "Feature", group: group)
+    static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
 }
 
 public extension Dep.Features.SelfCare {
     static let group = "SelfCare"
     
-    static let Feature = Dep.Features.project(name: "SelfCare", group: group)
-    static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToRoot("\(group)Feature"))
+    static let Feature = Dep.Features.project(name: "Feature", group: group)
+    static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
 }
 
 public extension Dep.Features.Shop {
     static let group = "Shop"
     
-    static let Feature = Dep.Features.project(name: "Shop", group: group)
-    static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToRoot("\(group)Feature"))
+    static let Feature = Dep.Features.project(name: "Feature", group: group)
+    static let Interface = Dep.project(target: "\(group)FeatureInterface", path: .relativeToFeature("\(group)Feature"))
 }
